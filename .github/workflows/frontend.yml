@@ -25,4 +25,3 @@ jobs:
       run: npm run test
     - name: Build page
       run: npm run build
-    - name: deploy
