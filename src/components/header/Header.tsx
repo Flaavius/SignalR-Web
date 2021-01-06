@@ -88,7 +88,7 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
             active: state === HubConnectionState.Connected,
           })}
           color="primary"
-          variant="contained"
+          variant="outlined"
         >
           {state === HubConnectionState.Connected ? "Stop" : "Connect"}
         </Button>
