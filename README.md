@@ -1,3 +1,6 @@
-#1 Hello World!!!
+#1 SignalR WebPage
 
-updates
+# Local Development Setup
+  - Clone the repo
+  - in the root of the repo run ```npm i```
+  - then run ```npm start```
