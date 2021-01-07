@@ -6,6 +6,7 @@ import { Button, TextField } from "@material-ui/core";
 
 import style from "./header.scss";
 import { GET } from "../../services/http";
+import { BASE_URL } from "../../services/config";
 
 interface IHeaderProps {
   api: string;
@@ -51,7 +52,7 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
   };
 
   const onPingClick = () => {
-    GET(api)
+    GET(`${api}/ping`)
       .then(data => alert(data))
       .catch(err => console.error(err));
   };

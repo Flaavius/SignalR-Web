@@ -1,4 +1,4 @@
-import { HubConnection, HubConnectionBuilder, HubConnectionState } from "@microsoft/signalr";
+import { HttpTransportType, HubConnection, HubConnectionBuilder, HubConnectionState, LogLevel } from "@microsoft/signalr";
 
 export interface IHubConnection {
   connect: (hub: string) => Promise<void>;
@@ -17,9 +17,17 @@ export const createConnection = (apiUrl, {
 
   return {
     connect: async (hub) => {
-      con = new HubConnectionBuilder().withUrl(`${apiUrl}/${hub}`).build();
+      con = new HubConnectionBuilder()
+        .configureLogging(LogLevel.Trace)
+        .withUrl(`${apiUrl}/${hub}`, HttpTransportType.WebSockets)
+        .build();
       con.onclose = onClose;
-      con.on("data", onData);
+      con.on("data", (data) => {
+        console.log("DT", data);
+      });
+      con.on("send", (data) => {
+        console.log("data", data);
+      })
       return await con.start();
     },
     close: async () => {

@@ -5,7 +5,7 @@ import { Header } from "../../components";
 
 const MainPage = () => {
   return (<div className="wrapper">
-    <Header api={getBaseApi()} />
+    <Header onData={(data) => {console.log(data)}} api={getBaseApi()} />
     <div style={{
       background: "lightgray",
       height: "110vh",

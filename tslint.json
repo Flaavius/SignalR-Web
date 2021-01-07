@@ -12,7 +12,8 @@
         "ordered-imports": false,
         "curly": false,
         "member-access": false,
-        "no-string-literal": false
+        "no-string-literal": false,
+        "no-any": true
     },
     "rulesDirectory": []
 }
